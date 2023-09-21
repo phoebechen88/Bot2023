@@ -75,25 +75,24 @@ void competition_initialize() {}
 void autonomous() {
 	
 	while (true) {
-		dist.get();
+		dist.get(); //get distance
 		distRead = dist.get();
 		pros::delay(1);
 
-		while (distRead>150)
+		topRight.move_velocity(50); //forward
+		topLeft.move_velocity(50);
+		botLeft.move_velocity(-50);
+		botRight.move_velocity(-50);
+		pros::delay(1000);
+
+		while (distRead<=150)
 		{
-			topRight.move_velocity(50); //forward
+			//stop?
+			
+			topRight.move_velocity(-50); //turn left
 			topLeft.move_velocity(50);
 			botLeft.move_velocity(-50);
-			botRight.move_velocity(-50);
-
-			while (distRead<=150)
-			{
-				topRight.move_velocity(-50); //turn left
-				topLeft.move_velocity(50);
-				botLeft.move_velocity(-50);
-				botRight.move_velocity(50);
-				pros::delay(1000);
-			}
+			botRight.move_velocity(50);
 		}	
 	}
 }
