@@ -7,11 +7,11 @@
 
 pros::Motor topRight(13, true); //port 13, clockwise
 pros::Motor topLeft(10, false);
-pros::Motor botLeft(17, true);
-pros::Motor botRight(15, false);
+pros::Motor botLeft(8, true);
+pros::Motor botRight(2, false);
 
 int distRead;
-pros::Distance dist(7);
+pros::Distance dist(18); //distance censor
 
 
 /**
