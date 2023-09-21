@@ -79,20 +79,22 @@ void autonomous() {
 		distRead = dist.get();
 		pros::delay(1);
 
-		topRight.move_velocity(50); //forward
-		topLeft.move_velocity(50);
-		botLeft.move_velocity(-50);
-		botRight.move_velocity(-50);
-		pros::delay(1000);
+		topRight.move_velocity(10); //forward
+		topLeft.move_velocity(10);
+		botLeft.move_velocity(-10);
+		botRight.move_velocity(-10);
+		pros::delay(1);
 
-		while (distRead<=150)
-		{
-			//stop?
-			
-			topRight.move_velocity(-50); //turn left
-			topLeft.move_velocity(50);
-			botLeft.move_velocity(-50);
-			botRight.move_velocity(50);
+		while (distRead<=150) {
+			topRight.move_velocity(-10); //turn left
+			topLeft.move_velocity(10);
+			botLeft.move_velocity(-10);
+			botRight.move_velocity(10);
+			pros::delay(1);
+
+			if (distRead>150) {
+				pros::delay(1);
+			}
 		}	
 	}
 }
