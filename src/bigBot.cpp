@@ -10,6 +10,9 @@ pros::Motor topLeft(10, false);
 pros::Motor botLeft(17, true);
 pros::Motor botRight(15, false);
 
+int distRead;
+pros::Distance dist(7);
+
 
 /**
  * A callback function for LLEMU's center button.
@@ -70,52 +73,29 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	topRight.move_velocity(50); //forward
-	topLeft.move_velocity(50);
-	botLeft.move_velocity(-50);
-	botRight.move_velocity(-50);
-	pros::delay(4000);
+	
+	while (true) {
+		dist.get();
+		distRead = dist.get();
+		pros::delay(1);
 
-	topRight.move_velocity(-50); //turn left
-	topLeft.move_velocity(50);
-	botLeft.move_velocity(-50);
-	botRight.move_velocity(50);
-	pros::delay(500);
+		while (distRead>150)
+		{
+			topRight.move_velocity(50); //forward
+			topLeft.move_velocity(50);
+			botLeft.move_velocity(-50);
+			botRight.move_velocity(-50);
 
-	topRight.move_velocity(50); //forward
-	topLeft.move_velocity(50);
-	botLeft.move_velocity(-50);
-	botRight.move_velocity(-50);
-	pros::delay(6000);
-
-	topRight.move_velocity(-100); //turn left
-	topLeft.move_velocity(100);
-	botLeft.move_velocity(-100);
-	botRight.move_velocity(100);
-	pros::delay(500);
-
-	topRight.move_velocity(100); //forward
-	topLeft.move_velocity(100);
-	botLeft.move_velocity(-100);
-	botRight.move_velocity(-100);
-	pros::delay(4000);
-
-	topRight.move_velocity(-100); //turn left
-	topLeft.move_velocity(100);
-	botLeft.move_velocity(-100);
-	botRight.move_velocity(100);
-	pros::delay(500);
-
-	topRight.move_velocity(100); //forward
-	topLeft.move_velocity(100);
-	botLeft.move_velocity(-100);
-	botRight.move_velocity(-100);
-	pros::delay(6000);
-
-	topRight.move_velocity(0); //stop
-	topLeft.move_velocity(0);
-	botLeft.move_velocity(0);
-	botRight.move_velocity(0);
+			while (distRead<=150)
+			{
+				topRight.move_velocity(-50); //turn left
+				topLeft.move_velocity(50);
+				botLeft.move_velocity(-50);
+				botRight.move_velocity(50);
+				pros::delay(1000);
+			}
+		}	
+	}
 }
 
 /**
