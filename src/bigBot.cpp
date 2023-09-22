@@ -90,7 +90,7 @@ void autonomous() {
 			topLeft.move_velocity(15);
 			botLeft.move_velocity(-15);
 			botRight.move_velocity(15);
-			pros::delay(900);
+			pros::delay(10);
 
 			//velocity 15, delay .9 sec = 90 degrees
 
