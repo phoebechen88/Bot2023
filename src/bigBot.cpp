@@ -79,18 +79,20 @@ void autonomous() {
 		distRead = dist.get();
 		pros::delay(1);
 
-		topRight.move_velocity(20); //forward
-		topLeft.move_velocity(20);
-		botLeft.move_velocity(-20);
-		botRight.move_velocity(-20);
+		topRight.move_velocity(15); //forward
+		topLeft.move_velocity(15);
+		botLeft.move_velocity(-15);
+		botRight.move_velocity(-15);
 		pros::delay(1);
 
 		while (distRead<250) {
-			topRight.move_velocity(-20); //turn left
-			topLeft.move_velocity(20);
-			botLeft.move_velocity(-20);
-			botRight.move_velocity(20);
-			pros::delay(10);
+			topRight.move_velocity(-15); //turn left
+			topLeft.move_velocity(15);
+			botLeft.move_velocity(-15);
+			botRight.move_velocity(15);
+			pros::delay(900);
+
+			//velocity 15, delay .9 sec = 90 degrees
 
 			dist.get(); //get distance
 			distRead = dist.get();
