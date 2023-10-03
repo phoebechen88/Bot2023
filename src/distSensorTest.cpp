@@ -5,13 +5,13 @@
 #include <vector>
 #include <math.h>
 
-pros::Motor topRight(13, true); //port 13, clockwise
-pros::Motor topLeft(10, false);
-pros::Motor botLeft(8, true);
-pros::Motor botRight(2, false);
+pros::Motor topRight(16, true); //port 13, clockwise
+pros::Motor topLeft(13, false);
+pros::Motor botLeft(4, true);
+pros::Motor botRight(10, false);
 
 int distRead;
-pros::Distance dist(18); //distance censor
+pros::Distance dist(1); //distance censor
 
 
 /**
