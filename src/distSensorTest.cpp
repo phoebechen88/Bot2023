@@ -5,13 +5,13 @@
 #include <vector>
 #include <math.h>
 
-pros::Motor topRight(16, true); //port 13, clockwise
+pros::Motor topRight(10, true); //port 13, clockwise
 pros::Motor topLeft(13, false);
-pros::Motor botLeft(4, true);
-pros::Motor botRight(10, false);
+pros::Motor botLeft(9, true);
+pros::Motor botRight(2, false);
 
 int distRead;
-pros::Distance dist(1); //distance censor
+pros::Distance dist(7); //distance censor
 
 
 /**
@@ -79,17 +79,17 @@ void autonomous() {
 		distRead = dist.get();
 		pros::delay(1);
 
-		topRight.move_velocity(15); //forward
-		topLeft.move_velocity(15);
-		botLeft.move_velocity(-15);
-		botRight.move_velocity(-15);
+		topRight.move_velocity(50); //forward
+		topLeft.move_velocity(50);
+		botLeft.move_velocity(-50);
+		botRight.move_velocity(-50);
 		pros::delay(1);
 
-		while (distRead<250) {
-			topRight.move_velocity(-15); //turn left
-			topLeft.move_velocity(15);
-			botLeft.move_velocity(-15);
-			botRight.move_velocity(15);
+		while (distRead<500) {
+			topRight.move_velocity(-50); //turn left
+			topLeft.move_velocity(50);
+			botLeft.move_velocity(-50);
+			botRight.move_velocity(50);
 			pros::delay(10);
 
 			//velocity 15, delay .9 sec = 90 degrees
