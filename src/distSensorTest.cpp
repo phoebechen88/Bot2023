@@ -11,7 +11,8 @@ pros::Motor botLeft(9, true);
 pros::Motor botRight(2, false);
 
 int distRead;
-pros::Distance dist(7); //distance censor
+pros::Distance dist(7); //distance censor 1
+pros::Distance dist2(7); //distance censor 2
 
 
 /**
@@ -85,7 +86,7 @@ void autonomous() {
 		botRight.move_velocity(-50);
 		pros::delay(1);
 
-		while (distRead<500) {
+		while (distRead<100) {
 			topRight.move_velocity(-50); //turn left
 			topLeft.move_velocity(50);
 			botLeft.move_velocity(-50);
