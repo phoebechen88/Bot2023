@@ -91,19 +91,19 @@ void autonomous() {
 			topLeft.move_velocity(-50);
 			botLeft.move_velocity(50);
 			botRight.move_velocity(50);
-			pros::delay(90);
+			pros::delay(1000);
 			
 			topRight.move_velocity(0); //pause
 			topLeft.move_velocity(0);
 			botLeft.move_velocity(0);
 			botRight.move_velocity(0);
-			pros::delay(30);
+			pros::delay(500);
 
 			topRight.move_velocity(-50); //turn left
 			topLeft.move_velocity(50);
 			botLeft.move_velocity(-50);
 			botRight.move_velocity(50);
-			pros::delay(50);
+			pros::delay(300);
 
 			//velocity 15, delay .9 sec = 90 degrees
 
