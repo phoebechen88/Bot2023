@@ -153,7 +153,6 @@ int ArmVoltage = 30;
     Arm.move_velocity(-50);
     pros::delay(500);
 
-
 	if(master.get_digital(DIGITAL_R2))
 		{
 			Intake.move_velocity(115);
